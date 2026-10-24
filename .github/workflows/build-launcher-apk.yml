@@ -1,4 +1,3 @@
-
 name: Build CleanYourTV launcher APK
 
 on:
@@ -24,9 +23,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Accept Android SDK licenses
-        run: yes | sdkmanager --licenses
+        with:
+          packages: ''
 
       - name: Install required Android SDK packages
         run: |
@@ -48,4 +46,3 @@ jobs:
           path: launcher/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 7
-          
