@@ -27,12 +27,6 @@ jobs:
           packages: 'platform-tools, platforms;android-34, build-tools;34.0.0'
           accept-android-sdk-licenses: true
 
-      - name: Install build tools
-        run: |
-          sdkmanager --install \
-            "platforms;android-34" \
-            "build-tools;34.0.0"
-
       - name: Build debug APK
         run: |
           chmod +x launcher/gradlew
