@@ -23,9 +23,10 @@ jobs:
 
       - name: Install Android SDK
         uses: android-actions/setup-android@v3
-        with:
-          packages: 'platform-tools, platforms;android-34, build-tools;34.0.0'
-          accept-android-sdk-licenses: true
+
+      - name: Install required SDK packages
+        run: |
+          sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0"
 
       - name: Build debug APK
         run: |
@@ -39,3 +40,4 @@ jobs:
           name: cleanyourtv-debug-apk
           path: launcher/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+          
